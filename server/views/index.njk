@@ -1,0 +1,38 @@
+{% extends "layout.njk" %}
+
+{% block content -%}
+{% for content in _m.contents -%}
+    {% include content.tpl + '.njk' %}
+{%- endfor %}
+{%- endblock %}
+
+{% block ready -%}{{ super() }}
+    var options = {
+        stagePadding: 1,
+        rtl: true,
+        lazyLoad: true,
+        loop : true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        smartSpeed: 2900,
+        fluidSpeed : true,
+        items: 4,
+        responsive:{
+            0:{
+                items:2
+            },
+            600:{
+                items:2
+            },
+            1000:{
+                items:3
+            },
+            1500:{
+                items:4
+            }
+        }
+    };
+    $('.owl-carousel.even').owlCarousel(options);
+    options.rtl = false;
+    $('.owl-carousel.odd').owlCarousel(options);
+{%- endblock %}

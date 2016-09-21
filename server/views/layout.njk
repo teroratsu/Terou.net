@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{{ _m.title }}{% endblock %}</title>
+    {% block meta -%}
+        {% for meta in _g.metaTags -%}
+        <meta name="{{meta.name}}" content="{{meta.content}}">
+        {%- endfor %}
+    {%- endblock %}
+    {% block style -%}
+        {% for style in _g.stylesheets -%}
+        <link href="{{style.href}}" type="{{style.type}}" rel="stylesheet" media="all">
+        {%- endfor %}
+        {% for style in _m.Secstylesheets -%}
+        <link href="{{style.href}}" type="{{style.type}}" rel="stylesheet" media="all">
+        {%- endfor %}
+    {%- endblock %}
+        <link rel="{{_g.favicon.rel}}" href="{{_g.favicon.href}}" />
+    </head>
+    <body>
+    {% block navbar %}{% endblock %}
+    {% block header %}{% endblock %}
+    {% block content %}Something went wrong :({% endblock %}
+    {% block footer %}{% endblock %}
+    {% block script -%}
+    {% for script in _g.scripts -%}
+    <script type="{{script.type}}" src="{{script.src}}"></script>
+    {%- endfor %}
+    {% for script in _m.Secscripts -%}
+    <script type="{{script.type}}" src="{{script.src}}"></script>
+    {%- endfor %}
+    {%- endblock %}
+    <script>
+    $( document ).ready(function() {
+    {% block ready -%}{%- endblock %}
+    });
+    </script>
+    </body>
+</html>

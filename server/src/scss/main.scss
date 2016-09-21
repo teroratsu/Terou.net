@@ -1,0 +1,129 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+$bg-color: #EEE;
+
+@import 'https://fonts.googleapis.com/css?family=Raleway:700';
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+
+/* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+
+body, html {
+    width: 100vw;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;  
+    background-color: #333;
+}
+.owl-wrapper {
+    margin: 0 auto;
+}
+
+#slideshow-accueil-container{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#slideshow-accueil-container .headline-container{
+    font-family: 'Raleway', sans-serif;
+    z-index: 2;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    background: rgba(0,0,0,.4);
+    display: table;
+}
+
+#slideshow-accueil-container .box{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#slideshow-accueil-container .headline-container .headline{
+    position: relative;
+    font-size: 400%;
+    color: #fff;
+    text-shadow: #ccc 0 1px 0, #c9c9c9 0 2px 0, #bbb 0 3px 0, #b9b9b9 0 4px 0, #aaa 0 5px 0,rgba(0,0,0,.1) 0 6px 1px, rgba(0,0,0,.1) 0 0 5px, rgba(0,0,0,.3) 0 1px 3px, rgba(0,0,0,.15) 0 3px 5px, rgba(0,0,0,.2) 0 5px 10px, rgba(0,0,0,.2) 0 10px 10px, rgba(0,0,0,.1) 0 20px 20px;
+}
+#slideshow-accueil-container .headline-container .headline-sub{
+    position: relative;
+    font-size: 200%;
+    color: #FFA44B;
+    text-shadow: 2px 2px 2px rgba(0,0,0,.5);
+}
+
+#slideshow-accueil-container .even{
+    border-top: 2px solid #FFA44B;
+    margin-top: 33.333vh;
+    overflow: hidden;
+}
+#slideshow-accueil-container .even:before{
+    position: absolute;
+    content: "";
+    width: 30vw;
+    height: 66.666vh;
+    right: -10vw;
+    bottom: -15.333vh;
+    background: #333;
+    opacity: .7;
+    z-index: 2;
+    transform: rotate(10deg);
+}
+#slideshow-accueil-container .even:after{
+    position: absolute;
+    content: "";
+    width: 25vw;
+    height: 66.666vh;
+    right: -10vw;
+    bottom: -15.333vh;
+    background: #333;
+    z-index: 2;
+    transform: rotate(10deg);
+}
+#slideshow-accueil-container .odd{
+    border-bottom: 2px solid #FFA44B;
+    overflow: hidden;
+}
+#slideshow-accueil-container .odd:before{
+    position: absolute;
+    content: "";
+    width: 30vw;
+    height: 66.666vh;
+    left: -10vw;
+    top: -15.333vh;
+    background: #333;
+    opacity: .7;
+    z-index: 2;
+    transform: rotate(10deg);
+}
+#slideshow-accueil-container .odd:after{
+    position: absolute;
+    content: "";
+    width: 25vw;
+    height: 66.666vh;
+    left: -10vw;
+    top: -15.333vh;
+    background: #333;
+    z-index: 2;
+    transform: rotate(10deg);
+}
+
+#slideshow-accueil-container .slide{
+    height: 33.333vh;
+    background-color: #333;
+}
+
+#slideshow-accueil-container img{
+    vertical-align: middle;
+    min-height: 33.333vh;
+    object-fit: cover;
+}
+.btn {
+    .bottom-left{
+        color: red;
+    }
+}

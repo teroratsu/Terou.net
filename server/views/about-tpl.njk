@@ -1,0 +1,43 @@
+<div id="{{content.section}}" class="{{content.section}}-container">
+    <div class="{{content.section}}-princi-container spotlight">
+    <div class="inner">
+        <h3>{{content.data.sectionPrinci.title}}</h3>
+        <div class="content">{{content.data.sectionPrinci.content|safe}}</div>
+        <div class="block-princi-more">
+            <h4>{{content.data.sectionPrinci.intro}}</h4>
+            <div class="block-sections">
+                <span class="{{content.data.sectionPrinci.faArt}} goto-art-btn">{{content.data.sectionPrinci.art}}</span>
+                <span class="{{content.data.sectionPrinci.faDev}} goto-dev-btn">{{content.data.sectionPrinci.dev}}</span>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="{{content.section}}-dev-container">
+    <div class="inner">
+        <span class="entypo-cancel"></span>
+        <h3>{{content.data.sectionDev.title}}</h3>
+        <div class="content">{{content.data.sectionDev.content|safe}}</div>
+        <div class="CV-info-dev">
+            <h4>En savoir plus :</h4>
+            <div class="block-btn">
+                <a href="{{content.data.sectionDev.cv.href}}"><span class="entypo-download dl-btn">{{content.data.sectionDev.cv.text}}</span></a>
+                <a href="{{content.data.sectionDev.btnMore.href}}"><span class="more-btn">{{content.data.sectionDev.btnMore.text}}</span></a>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="{{content.section}}-art-container">
+    <div class="inner">
+        <span class="entypo-cancel"></span>
+        <h3>{{content.data.sectionArt.title}}</h3>
+        <div class="content">{{content.data.sectionArt.content|safe}}</div>
+        <div class="CV-info-art">
+            <h4>En savoir plus :</h4>
+            <div class="block-btn">
+                 <a href="{{content.data.sectionArt.cv.href}}"><span class="entypo-download dl-btn">{{content.data.sectionArt.cv.text}}</span></a>
+                 <a href="{{content.data.sectionArt.btnMore.href}}"><span class="more-btn">{{content.data.sectionArt.btnMore.text}}</span></a>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div id="{{content.section}}-container" class="slideshow">
+    <div class="headline-container">
+        <div class="box">
+            <div class="headline">{{content.data.headline}}</div>
+            <div class="headline-sub">{{content.data.headlineSub}}</div>
+        </div>
+    </div>
+    <div id="overlay-accueil">
+        <a class="btn bottom-left" href="{{content.data.btn.left.href}}">{{content.data.btn.left.text}}</a>
+        <a class="btn bottom-right" href="{{content.data.btn.right.href}}">{{content.data.btn.right.text}}</a>
+        <a class="btn bottom-top" href="{{content.data.btn.top.href}}">{{content.data.btn.top.text}}</a>
+    </div>
+    <div id="{{content.section}}">
+    {% set step = content.data.slides.count / content.data.options.rows %}
+    {% set start = 1 %}{% set end = step+1 %}
+    {% set cls = cycler("odd", "even") %}
+    {% for j in range(1, content.data.options.rows+1) -%}
+    {% if not loop.first %}
+        {% set start = start+step %}{% set end = end+step %}
+    {% endif %}
+    <div class="owl-carousel {{ cls.next() }}">
+    {% for i in range(start, end) -%}
+        {% if content.data.slides.count > i-1 %}
+        <div class="slide">
+            {% if content.data.options.lazy %}
+            <img class="owl-lazy" data-src="assets/img/{{content.data.slides.path}}{{i}}{{content.data.slides.ext}}" alt="{{content.data.options.alt}}">
+            {% else %}
+            <img src="assets/img/{{content.data.slides.path}}{{i}}{{content.data.slides.ext}}" alt="{{content.data.options.alt}}">
+            {% endif %}
+        </div>
+        {% endif %}
+    {%- endfor %}
+    </div>
+    {%- endfor %}
+    </div>
+</div>

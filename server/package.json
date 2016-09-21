@@ -1,0 +1,20 @@
+{
+  "name": "te.ro",
+  "version": "0.0.1",
+  "description": "Te.ro C4NV4S",
+  "dependencies": {
+    "express": "^4.13.4",
+    "node-persist": "0.0.12",
+    "nunjucks": "^2.4.2"
+  },
+  "scripts": {
+    "dev": "node server.js | npm run compile-scss | npm run compile-cs",
+    "compile-cs": "coffee -o ../client/public/js -cw src/cs ",
+    "compile-scss": "node-sass -o ../client/public/css src/scss -w"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.10.0",
+    "jquery": "^2.2.3",
+    "node-sass": "^3.8.0"
+  }
+}

@@ -1,0 +1,35 @@
+<div id="{{content.section}}" class="{{content.section}}-container">
+    <div class="social-links-container">
+    <ul>
+    {% for link in content.data.socialLinks %}
+        <li>
+            <a id="{{link.id}}" href="{{link.href}}"><span class="{{link.fa}}"></span></a>
+        </li>
+        {% endfor %}
+    </ul>
+    </div>
+    <div class="{{content.section}}-form-container">
+        <div class="top-{{content.section}}-form"><p>Envoyez moi un mail à l'adresse suivante : <a href="mailto:{{content.data.mailto}}">{{content.data.mailto}}</a>, ou contactez moi directement ici :</p></div>
+        <form id="main-{{content.section}}-form" class="contact-form" name="contact-form" action="{{content.data.form.options.action}}">
+            <div class="form-group">
+                <h4>{{content.data.form.champs.name.title}}</h4>
+                <input type="{{content.data.form.champs.name.type}}" name="{{content.data.form.champs.name.name}}" class="form-control" required="required" placeholder="{{content.data.form.champs.name.placeholder}}">
+            </div>
+            <div class="form-group">
+                <h4>{{content.data.form.champs.mail.title}}</h4>
+                <input type="{{content.data.form.champs.mail.type}}" name="{{content.data.form.champs.mail.name}}" class="form-control" required="required" placeholder="{{content.data.form.champs.mail.placeholder}}">
+            </div>
+            <div class="form-group">
+                <h4>{{content.data.form.champs.subject.title}}</h4>
+                <input type="{{content.data.form.champs.subject.type}}" name="{{content.data.form.champs.subject.name}}" class="form-control" required="required" placeholder="{{content.data.form.champs.subject.placeholder}}">
+            </div>
+            <div class="form-group">
+                <h4>{{content.data.form.champs.textarea.title}}</h4>
+                <textarea name="{{content.data.form.champs.textarea.name}}" required="required" class="form-control" rows="{{content.data.form.champs.textarea.rows}}" placeholder="{{content.data.form.champs.textarea.placeholder}}"></textarea>
+            </div>                        
+            <div class="form-group">
+                <button type="submit" class="btn-submit"><span class="{{content.data.form.btnText}}"></span></button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -11,8 +11,10 @@ const fs = require('fs');
 /**************************************/
 /********* Globales et config *********/
 
-var client_path = path.resolve(__dirname, '../client'); //adresse du dossier client
-var port = 3000;
+var client_path = path.resolve(__dirname, 'client'); //adresse du dossier client
+
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
 
 var defaultStorage = storage.create(); //init local storage
 var controllerStorage = storage.create(); //init controller storage
@@ -21,18 +23,19 @@ var controllerStorage = storage.create(); //init controller storage
 nunjucks.configure(['views',client_path],{
 	autoescape : true,
 	express : app,
-    noCache  : true   //dev only. force recompile
+  noCache  : true   //dev only. force recompile
 });
 
 app.set('view engine', 'njk');
 
 // Configuration storages
+
 defaultStorage.initSync({
-  dir : __dirname + '/data/default',
+  dir : __dirname + '/server/data/default',
   interval : 5000 // persist every 5s
 });
 controllerStorage.initSync({
-  dir : __dirname + '/data/pages',
+  dir : __dirname + '/server/data/pages',
   interval : 5000 // persist every 5s
 });
 
@@ -46,20 +49,9 @@ app.get('/', ctrlIndex); //presentation page
 app.get('/devroom', ctrlDev);
 app.get('/galery', ctrlArt);
 
-//post
-//app.post('/', formReader.single('lobby_img'), ctrlPostNewImg);
 
 /**************************************/
 /************* Controller *************/
-
-//generate html
-/*function ctrlIndex(req, res) {
-  res.render('index',{
-    "_m"  : controllerStorage.getItem('index.json')
-  },function(err, html) {
-    fs.writeFile('render/index.html', html);
-});
-}*/
 
 function ctrlIndex(req, res) {
   res.render('index',{
@@ -82,8 +74,8 @@ function ctrlArt(req, res) {
 /**************************************/
 /************** SERVER ****************/
 
-http.listen(port, function(){
-  console.log('listening on *:' + port);
+server.listen(server_port, server_ip_address, function(){
+  console.log("Listening on " + server_ip_address + ", server_port " + server_port)
 });
 
 /**************************************/

@@ -8,6 +8,7 @@
     "nunjucks": "^2.4.2"
   },
   "scripts": {
+    "start" : "node server.js",
     "dev": "node server.js | npm run compile-scss | npm run compile-cs",
     "compile-cs": "coffee -o ../client/public/js -cw src/cs ",
     "compile-scss": "node-sass -o ../client/public/css src/scss -w"
